@@ -137,4 +137,3 @@ b = 6
 print(a - b) if a > b else print('upsi')
 
 
-
