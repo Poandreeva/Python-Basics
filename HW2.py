@@ -133,6 +133,8 @@ while True:
     tov.append(tov2)
     tov1.clear()
     q = input('хотите добавить товар? Формат ввода: да/нет ').lower()
+    if q != 'да' or 'нет':
+        q = input('хотите добавить товар? Формат ввода: да/нет ').lower()
     if q == 'нет':
         break
     x = x + 1
