@@ -137,4 +137,46 @@ class Cell:
         if not isinstance(number, int):
             raise TypeError('Число должно быть целым')
 
+    def __add__(self, other):
+        return self.number + other.number
+
+    def __sub__(self, other):
+        minus = self.number - other.number
+        if minus >= 0:
+            return minus
+        else:
+            raise TypeError('Разность должна быть больше нуля')
+
+    def __mul__(self, other):
+        return self.number * other.number
+
+    def __truediv__(self, other):
+        return self.number // other.number
+
+    def make_order(self, num_in_row):
+        row = self.number // num_in_row
+        last_row = self.number - num_in_row * row
+        for j in range(row):
+            li = []
+            for i in range(num_in_row):
+                li.append('*')
+            print(''.join([str(el) for el in li]))
+        if last_row > 0:
+            li = []
+            for i in range(last_row):
+                li.append('*')
+            print(''.join([str(el) for el in li]))
+
+
+cell1 = Cell(50)
+cell2 = Cell(10)
+print(cell1 + cell2)
+print(cell1 - cell2)
+print(cell1 * cell2)
+print(cell1 / cell2)
+
+print('первая клетка по 15 ячеек в ряду')
+cell1.make_order(15)
+print('вторая клетка по 5 ячеек в ряду')
+cell2.make_order(5)
 
